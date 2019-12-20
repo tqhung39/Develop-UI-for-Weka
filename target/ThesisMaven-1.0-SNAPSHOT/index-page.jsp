@@ -1,8 +1,3 @@
-<%-- 
-    Document   : newjsp
-    Created on : Jun 11, 2019, 3:18:55 PM
-    Author     : Admin
---%>
 <!DOCTYPE html>
 <html lang="en">
     <title>List of Dataset</title>
