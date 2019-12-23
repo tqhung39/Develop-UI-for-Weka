@@ -29,6 +29,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         <style>
+            body {
+                background-image: url('images/background.jpg');
+            }
             table, th, td {
             padding: 10px;
             border: 1px solid black; 
@@ -36,8 +39,73 @@
             text-align: center;
             }
             .btn.btn-primary {
-                margin-left: 150px !important;
                 margin-top: 20px !important;
+            }
+            .title {
+                background-color: #FFF8DC;
+            }
+            .col-md-4 {
+                background-color: #DCDCDC;
+                margin-left: 20px;
+                width: 30%;
+                min-height: 500px;
+                border-radius: 12px;
+            }
+            .start-btn, .compare-btn{
+                display: inline-block;
+                margin-bottom: 0;
+                font-weight: 400;
+                text-align: center;
+                white-space: nowrap;
+                vertical-align: middle;
+                -ms-touch-action: manipulation;
+                touch-action: manipulation;
+                cursor: pointer;
+                background-image: none;
+                border: 1px solid transparent;
+                padding: 6px 12px;
+                font-size: 14px;
+                line-height: 1.42857143;
+                border-radius: 4px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                color: #fff;
+                background-color: #337ab7;
+                border-color: #2e6da4;
+                margin-top: 20px;
+                margin-left: 100px;
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+            .stop-btn{
+                display: inline-block;
+                margin-bottom: 0;
+                font-weight: 400;
+                text-align: center;
+                white-space: nowrap;
+                vertical-align: middle;
+                -ms-touch-action: manipulation;
+                touch-action: manipulation;
+                cursor: pointer;
+                background-image: none;
+                border: 1px solid transparent;
+                padding: 6px 12px;
+                font-size: 14px;
+                line-height: 1.42857143;
+                border-radius: 4px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                color: #fff;
+                background-color: #337ab7;
+                border-color: #2e6da4;
+                margin-top: 20px;
+                margin-left: 10px;
+                padding-left: 50px;
+                padding-right: 50px;
             }
         </style>
         <title>Classify</title>
@@ -63,7 +131,9 @@
                     smo.style.display = "block";
                 }
 		}
-                
+            function stopAlert(){
+                alert('The classification has been stopped');
+            }    
             function showChart(){
                 var chartselected = document.getElementById("chartContainer");                
                 if (chartselected.style.display === 'none'){
@@ -165,24 +235,29 @@
     </head>
     <body>
         <div>
-            <h1 align="center">GLASS DATASET CLASSIFICATION</h1>
-                <div id="classify" class="row">                    
-                    <div class="col-md-4">
-                        <h1 align="center">Classifier</h1>                        
+            <div class="title">
+            <p style="font-size: 50px; text-align: center">Glass Dataset Classification<p>
+            </div>
+                <div id="classify" class="row">
+                    <div class="col-md-auto">
+                    <h1 style="color: red; margin-left:30px;">Classifier</h1>
+                    </div>
+                    <div class="col-md-4">                       
                         <h3>Choose:
                             <select id="classifierselect">
                                 <option value="nb">NaiveBayes</option>
                                 <option value="j48">J48</option>
                                 <option value="smo">SMO</option>
                             </select>
-                        </h3> 
-                        <button class="btn btn-primary" type="button" onclick="getSelected()">START</button>
+                        </h3>
                         </br>
-                        <button class="btn btn-primary" type="button" onclick="showChart()">COMPARE</button> 
-                        </div>
-                    
+                        <button class="start-btn" type="button" onclick="getSelected()">Start</button>
+                        <button class="stop-btn" id="stop-btn" type="button" onclick="">Stop</button>                         
+                        </br>
+                        <button class="compare-btn" type="button" onclick="showChart()">Compare result</button> 
+                        </div>                   
                     <div class="col-md-4" id="glassnb" style="display:none">
-                        <h1 align="center">=== Summary ===</h1>
+                        <h1 style="color:red"align="center">Classifier output: </h1>
                         <h5><%
                             String FILE_PATH = "C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff";
 
@@ -262,7 +337,7 @@
                         </h2>
                     </div>
                     <div class="col-md-4" id="glassj48" style="display:none">
-                        <h1 align="center">=== Summary ===</h1>
+                        <h1 style="color:red"align="center">Classifier output: </h1>
                         <h5>
                             <%
                                 DataSource source = new DataSource("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff");
@@ -338,7 +413,7 @@
                         </h2>
                     </div>
                     <div class="col-md-4" id="glasssmo" style="display:none">
-                        <h1 align="center">=== Summary ===</h1>
+                        <h1 style="color:red"align="center">Classifier output: </h1>
                         <h1>
                             <%
                                 dataset.setClassIndex(dataset.numAttributes()-1);
@@ -385,7 +460,7 @@
                             <%=eval2.recall(0)%>
                         </h2>
                     </div>
-                    <div class="col-auto" id="chartContainer" style="width: 100%; display: none; padding-top: 40px;"></div>
+                    <div class="col-md-4" id="chartContainer" style="display: none; padding-top: 40px; padding-left: 40px;"></div>
                 </div>
         </div>
     </body>
