@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css" type="text/css"/>
 
 
+
     <style>
         body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
         body {font-size:16px;}
@@ -70,21 +71,23 @@
             </div>
 
             <!-- Photo grid (modal) -->
-            <div class="w3-col l3 m6 w3-margin-bottom" id="glass">
+            <h3>Choose dataset to classify:</h3>
+            
+            <div class="w3-col 8 m6 w3-margin-bottom" id="glass" style="display:block">
                 <div class="w3-display-container">
-                    <img src="images/1.png" style="width:90%" onclick="onClick(this)" id="glass">
+                    <img src="images/1.png" style="width:50%" onclick="onClick(this)" id="glass">
                     <h3><a href="glass-classify.jsp">Glass Dataset</a></h3>                    
                 </div>
             </div>
-            <div class="w3-col l3 m6 w3-margin-bottom" id="iris2D">
+            <div class="w3-col 8 m6 w3-margin-bottom" id="iris2D" style="display:block">
                 <div class="w3-display-container">
-                    <img src="images/1.png" style="width:90%" onclick="onClick(this)" id="iris">
+                    <img src="images/1.png" style="width:50%" onclick="onClick(this)" id="iris">
                     <h3><a href="iris2D-classify.jsp">Iris.2D Dataset</a></h3>
                 </div>
             </div>
-            <div class="w3-col l3 m6 w3-margin-bottom" id="weather">
+            <div class="w3-col 8 m6 w3-margin-bottom" id="weather" style="display:block">
                 <div class="w3-display-container">
-                    <img src="images/1.png" style="width:90%" onclick="onClick(this)" id="weather">
+                    <img src="images/1.png" style="width:50%" onclick="onClick(this)" id="weather">
                     <h3><a href="weather-classify.jsp">Weathernominal Dataset</a></h3>                   
                 </div>
             </div>
@@ -104,7 +107,7 @@
 
             <!-- End page content -->
         </div>
-    <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:600px">
+    <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:50px;padding-right:600px">
         <p class="w3-right"><b>2019 All Rights Reserved</b></p>
         </br>
         <p class="w3-right" style="margin-right:-227px;"><b>Powered by Tran Quoc Hung</b></p>
@@ -147,6 +150,26 @@
                     }
                 }
             }
+//            function getSelected(){
+//                var select = document.getElementById("classify");
+//                var selected = select.options[select.selectedIndex].text;
+//                var glass = document.getElementById("glass");
+//                var iris = document.getElementById("iris2D");
+//                var weather = document.getElementById("weather");
+//                if (selected === 'Glass'){
+//                    glass.style.display === 'none';
+//                    iris.style.display === 'none';
+//                    weather.style.display === 'none';
+//                } else if(selected === Iris2D){
+//                    glass.style.display === 'none';
+//                    iris.style.display === 'none';
+//                    weather.style.display === 'none';
+//                } else if(selected === 'Weathernominal'){
+//                    glass.style.display === 'none';
+//                    iris.style.display === 'none';
+//                    weather.style.display === 'none';
+//                }
+//            }
         </script>
 
     </body>

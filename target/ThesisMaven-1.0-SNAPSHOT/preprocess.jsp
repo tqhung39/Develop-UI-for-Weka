@@ -24,6 +24,12 @@
             .table-dataset  {
                 border-radius: 12px;
             }
+            body {
+                background-image: url('');
+            }
+            .title {
+                background-color: #FFF8DC;
+            }
         </style>
         <script>
             function glassFunction() {
@@ -63,7 +69,9 @@
     </head>
     <body>
         <div>
-            <h1 align="center">Dataset Attributes</h1>
+            <div class="title">
+            <p style="font-size: 50px; text-align: center">Preprocess<p>
+            </div>
                 <div id="dataset" class="row">
                     <div class="col-md-4">
                         <table class="table-dataset" style="width: 100%; height: 500px">
