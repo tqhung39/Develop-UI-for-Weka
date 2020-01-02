@@ -6,21 +6,16 @@ import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.core.Instances;
 import weka.core.converters.ArffLoader;
-import weka.filters.Filter;
-import weka.filters.unsupervised.attribute.StringToWordVector;
 import java.util.Random;
 
 public class Glass {
     public static Instances getDataSet(String fileName) {
         try {
-            StringToWordVector filter = new StringToWordVector();
             ArffLoader loader = new ArffLoader();
             loader.setSource(new File(fileName));
             Instances dataSet = loader.getDataSet();
             int classIdx = dataSet.numAttributes() - 1;
             dataSet.setClassIndex(classIdx);
-            filter.setInputFormat(dataSet);
-            dataSet = Filter.useFilter(dataSet, filter);
             return dataSet;
         } catch (Exception e) {
             System.out.println(e);
@@ -35,7 +30,6 @@ public class Glass {
         String PREDICTION_DATA_SET_FILENAME = "";
 
         Instances testingDataSet;
-        Instances predictingDataSet;
 
         try {
             Instances trainingDataSet = getDataSet(TRAINING_DATA_SET_FILENAME);

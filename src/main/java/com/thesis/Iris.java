@@ -7,22 +7,17 @@ import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.core.Instances;
 import weka.core.converters.ArffLoader;
-import weka.filters.Filter;
-import weka.filters.unsupervised.attribute.StringToWordVector;
 import java.util.Random;
 
 
 public class Iris {
     public static Instances getDataSet(String fileName) {
         try {
-            StringToWordVector filter = new StringToWordVector();
             ArffLoader loader = new ArffLoader();
             loader.setSource(new File(fileName));
             Instances dataSet = loader.getDataSet();
             int classIdx = dataSet.numAttributes() - 1;
             dataSet.setClassIndex(classIdx);
-            filter.setInputFormat(dataSet);
-            dataSet = Filter.useFilter(dataSet, filter);
             return dataSet;
         } catch (Exception e) {
             System.out.println(e);

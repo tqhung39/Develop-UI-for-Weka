@@ -407,17 +407,19 @@
                         <h1 style="color:red"align="center">Classifier output: </h1>
                         <h1>
                             <%
-                                dataset.setClassIndex(dataset.numAttributes()-1);
-                                NaiveBayes nb = new NaiveBayes();
-                                nb.buildClassifier(dataset);
-                                Evaluation eval2 = new Evaluation(dataset);
-                                eval.evaluateModel(nb, dataset);
-                                System.out.println(eval2.toSummaryString());
-
                                 SMO svm = new SMO();
-                                svm.buildClassifier(dataset);
-                                eval2.evaluateModel(svm, dataset);
+                                svm.buildClassifier(trainingDataSet);
+                                Evaluation eval2 = new Evaluation(trainingDataSet);
+                                if (testingDataSet != null) {
+                                    eval2.evaluateModel(svm, testingDataSet);
+                                } else {
+                                    eval2.crossValidateModel(svm, trainingDataSet, 10, new Random(1));
+                                }
                                 System.out.println(eval2.toSummaryString());
+                                System.out.print(" the expression for the input data as per alogorithm is ");
+                                System.out.println(svm);
+                                System.out.println("Precision = "+eval2.precision(0));
+                                System.out.println("Recall = "+eval2.recall(0));
 		
                             %>
                         </h1>                        

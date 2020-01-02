@@ -140,9 +140,9 @@
                             markerType: "square",
                             color: "#F08080",
                             dataPoints: [
-                               { label:"NaiveBayes", y:0.636},
-                               { label:"J48", y:0.625},
-                               { label:"SMO", y:0.818},
+                               { label:"NaiveBayes", y:0.6364},
+                               { label:"J48", y:0.6250},
+                               { label:"SMO", y:0.7000},
                             ]
                     },
                     {
@@ -151,9 +151,9 @@
                             name: "Recall",
                             lineDashType: "dash",
                             dataPoints: [
-                               { label:"NaiveBayes", y:0.778},
-                               { label:"J48", y:0.556},
-                               { label:"SMO", y:1.000},  
+                               { label:"NaiveBayes", y:0.7778},
+                               { label:"J48", y:0.5556},
+                               { label:"SMO", y:1.0000},  
                             ]
                     },
                     {
@@ -165,7 +165,7 @@
                             dataPoints: [
                                { label:"NaiveBayes", y:0.4374},
                                { label:"J48", y:0.4167},
-                               { label:"SMO", y:0.1429}  
+                               { label:"SMO", y:0.3571}  
                             ]
                     },
                     {
@@ -176,7 +176,7 @@
                             dataPoints: [
                                { label:"NaiveBayes", y:0.4916},
                                { label:"J48", y:0.5984},
-                               { label:"SMO", y:0.378}  
+                               { label:"SMO", y:0.5976}  
                             ]
                     }
                 ]
@@ -409,17 +409,19 @@
                         <h1 style="color:red"align="center">Classifier output: </h1>
                         <h1>
                             <%
-                                dataset.setClassIndex(dataset.numAttributes()-1);
-                                NaiveBayes nb = new NaiveBayes();
-                                nb.buildClassifier(dataset);
-                                Evaluation eval2 = new Evaluation(dataset);
-                                eval.evaluateModel(nb, dataset);
-                                System.out.println(eval2.toSummaryString());
-
                                 SMO svm = new SMO();
-                                svm.buildClassifier(dataset);
-                                eval2.evaluateModel(svm, dataset);
+                                svm.buildClassifier(trainingDataSet);
+                                Evaluation eval2 = new Evaluation(trainingDataSet);
+                                if (testingDataSet != null) {
+                                    eval2.evaluateModel(svm, testingDataSet);
+                                } else {
+                                    eval2.crossValidateModel(svm, trainingDataSet, 10, new Random(1));
+                                }
                                 System.out.println(eval2.toSummaryString());
+                                System.out.print(" the expression for the input data as per alogorithm is ");
+                                System.out.println(svm);
+                                System.out.println("Precision = "+eval2.precision(0));
+                                System.out.println("Recall = "+eval2.recall(0));
 		
                             %>
                         </h1>                        

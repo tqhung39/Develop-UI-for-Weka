@@ -178,9 +178,9 @@
                             markerType: "square",
                             color: "#F08080",
                             dataPoints: [
-                               { label:"NaiveBayes", y:0.45535714285714285},
-                               { label:"J48", y:0.6666666666666666},
-                               { label:"SMO", y:0.6792452830188679},
+                               { label:"NaiveBayes", y:0.4553},
+                               { label:"J48", y:0.6667},
+                               { label:"SMO", y:0.5932},
                             ]
                     },
                     {
@@ -189,9 +189,9 @@
                             name: "Recall",
                             lineDashType: "dash",
                             dataPoints: [
-                               { label:"NaiveBayes", y:0.7285714285714285},
-                               { label:"J48", y:0.7142857142857143},
-                               { label:"SMO", y:0.5142857142857142}  
+                               { label:"NaiveBayes", y:0.7286},
+                               { label:"J48", y:0.7143},
+                               { label:"SMO", y:0.5000}  
                             ]
                     },
                     {
@@ -203,7 +203,7 @@
                             dataPoints: [
                                { label:"NaiveBayes", y:0.1541},
                                { label:"J48", y:0.1026},
-                               { label:"SMO", y:0.2120}  
+                               { label:"SMO", y:0.2137}  
                             ]
                     },
                     {
@@ -214,7 +214,7 @@
                             dataPoints: [
                                { label:"NaiveBayes", y:0.3399},
                                { label:"J48", y:0.2897},
-                               { label:"SMO", y:0.3138}  
+                               { label:"SMO", y:0.3166}  
                             ]
                     }
                 ]
@@ -416,17 +416,19 @@
                         <h1 style="color:red"align="center">Classifier output: </h1>
                         <h1>
                             <%
-                                dataset.setClassIndex(dataset.numAttributes()-1);
-                                NaiveBayes nb = new NaiveBayes();
-                                nb.buildClassifier(dataset);
-                                Evaluation eval2 = new Evaluation(dataset);
-                                eval.evaluateModel(nb, dataset);
-                                System.out.println(eval2.toSummaryString());
-
                                 SMO svm = new SMO();
-                                svm.buildClassifier(dataset);
-                                eval2.evaluateModel(svm, dataset);
+                                svm.buildClassifier(trainingDataSet);
+                                Evaluation eval2 = new Evaluation(trainingDataSet);
+                                if (testingDataSet != null) {
+                                    eval2.evaluateModel(svm, testingDataSet);
+                                } else {
+                                    eval2.crossValidateModel(svm, trainingDataSet, 10, new Random(1));
+                                }
                                 System.out.println(eval2.toSummaryString());
+                                System.out.print(" the expression for the input data as per alogorithm is ");
+                                System.out.println(svm);
+                                System.out.println("Precision = "+eval2.precision(0));
+                                System.out.println("Recall = "+eval2.recall(0));
 		
                             %>
                         </h1>                        
