@@ -47,10 +47,9 @@ public class Weathernominal {
             }
             System.out.println("* Naive Bayes Evaluation with Datasets *");
             System.out.println(eval.toSummaryString());
-            System.out.print(" the expression for the input data as per alogorithm is ");
-            System.out.println(classifier);
             System.out.println("Precision = "+eval.precision(0));
 	    System.out.println("Recall = "+eval.recall(0));
+            System.out.println(classifier);            
         } catch (Exception e) {
             System.out.println(e);
         }
