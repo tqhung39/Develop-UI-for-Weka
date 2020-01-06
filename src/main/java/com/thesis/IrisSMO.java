@@ -31,11 +31,11 @@ public class IrisSMO {
             } else {
                 eval.crossValidateModel(svm, trainingDataSet, 10, new Random(1));
             }
+            System.out.println("Classifier output: ");            
             System.out.println(eval.toSummaryString());
-            System.out.print(" the expression for the input data as per alogorithm is ");
-            System.out.println(svm);
             System.out.println("Precision = "+eval.precision(0));
 	    System.out.println("Recall = "+eval.recall(0));
+            System.out.println(svm);  
         } catch (Exception e) {
             System.out.println(e);
         }

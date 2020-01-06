@@ -10,7 +10,7 @@ public class GlassSMO {
     public static void main(String[] args) {
         String FILE_PATH = "C:\\Program Files\\Weka-3-8\\data\\";
 
-        String TRAINING_DATA_SET_FILENAME = FILE_PATH + "glass.arff";
+        String TRAINING_DATA_SET_FILENAME = FILE_PATH + "supermarket.arff";
         String TESTING_DATA_SET_FILENAME = "";
         String PREDICTION_DATA_SET_FILENAME = "";
 
@@ -31,11 +31,11 @@ public class GlassSMO {
             } else {
                 eval.crossValidateModel(svm, trainingDataSet, 10, new Random(1));
             }
+            System.out.println("Classifier output: ");            
             System.out.println(eval.toSummaryString());
-            System.out.print(" the expression for the input data as per alogorithm is ");
-            System.out.println(svm);
             System.out.println("Precision = "+eval.precision(0));
 	    System.out.println("Recall = "+eval.recall(0));
+            System.out.println(svm);            
         } catch (Exception e) {
             System.out.println(e);
         }

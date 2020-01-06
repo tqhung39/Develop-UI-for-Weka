@@ -27,7 +27,7 @@ public class Iris {
     public static void main(String[] args) {
         String FILE_PATH = "C:\\Program Files\\Weka-3-8\\data\\";
 
-        String TRAINING_DATA_SET_FILENAME = FILE_PATH + "iris.2D.arff";
+        String TRAINING_DATA_SET_FILENAME = FILE_PATH + "segment-challenge.arff";
         String TESTING_DATA_SET_FILENAME = "";
         String PREDICTION_DATA_SET_FILENAME = "";
 
