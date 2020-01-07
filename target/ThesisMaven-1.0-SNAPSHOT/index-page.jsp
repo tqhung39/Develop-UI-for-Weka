@@ -25,6 +25,34 @@
             color: black;
             text-align: center;
         }
+        .start-btn{
+            display: inline-block;
+                margin-bottom: 0;
+                font-weight: 400;
+                text-align: center;
+                white-space: nowrap;
+                vertical-align: middle;
+                -ms-touch-action: manipulation;
+                touch-action: manipulation;
+                cursor: pointer;
+                background-image: none;
+                border: 1px solid transparent;
+                padding: 6px 12px;
+                font-size: 14px;
+                line-height: 1.42857143;
+                border-radius: 4px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                color: #fff;
+                background-color: #337ab7;
+                border-color: #2e6da4;
+                margin-top: 20px;
+                margin-left: 100px;
+                padding-left: 50px;
+                padding-right: 50px;
+        }
     </style>
     <body>
 
@@ -65,27 +93,49 @@
     <form method="post" action="uploadFile" enctype="multipart/form-data">
         <h3>Choose a dataset: <input type="file" name="uploadFile"/><input type="submit" value="Upload"/></h3>
     </form>
-                <h3 class="w3-xxxlarge w3-text-red"><a href="preprocess.jsp"><b>Preprocess:</b></a></h3>
+                </br>
+                <h5>Choose dataset to preprocess and classify:
+            <select id="classify">
+                <option value="glass">Glass</option>
+                <option value="iris2D">Iris2D</option>
+                <option value="weather">Weather nominal</option>
+            </select>
+            </h5>   
+            <button class="start-btn" type="button" onclick="getSelected()">Start</button>
+            <div class="w3-container" style="margin-top:80px" id="preprocess">
+                <h3 class="w3-xxxlarge w3-text-red"><b>Preprocess:</b></h3>
+            </div>
+            <div class="w3-row-padding">
+                <div class="w3-half" id="glasspre" style="display:none">
+                    <img src="images/1.png" style="width:50%" onclick="onClick(this)" id="glass1">
+                    <h3><a href="glass-preprocess.jsp">Glass Dataset</a></h3>
+                </div>
+                <div class="w3-half" id="iris2Dpre" style="display:none">
+                    <img src="images/1.png" style="width:50%" onclick="onClick(this)" id="iris1">
+                    <h3><a href="iris2D-preprocess.jsp">Iris.2D Dataset</a></h3>
+                </div>
+                <div class="w3-half" id="weatherpre" style="display:none">
+                    <img src="images/1.png" style="width:50%" onclick="onClick(this)" id="weather1">
+                    <h3><a href="weather-preprocess.jsp">Weathernominal Dataset</a></h3>
+                </div>
+            <div class="w3-container" id="designers" style="margin-top:75px">
                 <h3 class="w3-xxxlarge w3-text-red"><b>Classify:</b></h3>
-
             </div>
 
             <!-- Photo grid (modal) -->
-            <h3>Choose dataset to classify:</h3>
-            
-            <div class="w3-col 8 m6 w3-margin-bottom" id="glass" style="display:block">
+            <div class="w3-col 8 m6 w3-margin-bottom" id="glass" style="display:none">
                 <div class="w3-display-container">
                     <img src="images/1.png" style="width:50%" onclick="onClick(this)" id="glass">
                     <h3><a href="glass-classify.jsp">Glass Dataset</a></h3>                    
                 </div>
             </div>
-            <div class="w3-col 8 m6 w3-margin-bottom" id="iris2D" style="display:block">
+            <div class="w3-col 8 m6 w3-margin-bottom" id="iris2D" style="display:none">
                 <div class="w3-display-container">
                     <img src="images/1.png" style="width:50%" onclick="onClick(this)" id="iris">
                     <h3><a href="iris2D-classify.jsp">Iris.2D Dataset</a></h3>
                 </div>
             </div>
-            <div class="w3-col 8 m6 w3-margin-bottom" id="weather" style="display:block">
+            <div class="w3-col 8 m6 w3-margin-bottom" id="weather" style="display:none">
                 <div class="w3-display-container">
                     <img src="images/1.png" style="width:50%" onclick="onClick(this)" id="weather">
                     <h3><a href="weather-classify.jsp">Weathernominal Dataset</a></h3>                   
@@ -150,26 +200,38 @@
                     }
                 }
             }
-//            function getSelected(){
-//                var select = document.getElementById("classify");
-//                var selected = select.options[select.selectedIndex].text;
-//                var glass = document.getElementById("glass");
-//                var iris = document.getElementById("iris2D");
-//                var weather = document.getElementById("weather");
-//                if (selected === 'Glass'){
-//                    glass.style.display === 'none';
-//                    iris.style.display === 'none';
-//                    weather.style.display === 'none';
-//                } else if(selected === Iris2D){
-//                    glass.style.display === 'none';
-//                    iris.style.display === 'none';
-//                    weather.style.display === 'none';
-//                } else if(selected === 'Weathernominal'){
-//                    glass.style.display === 'none';
-//                    iris.style.display === 'none';
-//                    weather.style.display === 'none';
-//                }
-//            }
+            function getSelected(){
+                var select = document.getElementById("classify");
+                var selected = select.options[select.selectedIndex].text;
+                var glasspre = document.getElementById("glasspre");
+                var irispre = document.getElementById("iris2Dpre");
+                var weatherpre = document.getElementById("weatherpre");
+                var glass = document.getElementById("glass");
+                var iris = document.getElementById("iris2D");
+                var weather = document.getElementById("weather");
+                if (selected === 'Glass'){
+                    glass.style.display = 'block';
+                    glasspre.style.display = 'block';
+                    iris.style.display = 'none';
+                    irispre.style.display = 'none';
+                    weather.style.display = 'none';
+                    weatherpre.style.display = 'none';
+                } else if(selected === 'Iris2D'){
+                    glass.style.display = 'none';
+                    glasspre.style.display = 'none';
+                    iris.style.display = 'block';
+                    irispre.style.display = 'block';
+                    weather.style.display = 'none';
+                    weatherpre.style.display = 'none';
+                } else {
+                    glass.style.display ='none';
+                    glasspre.style.display = 'none';
+                    iris.style.display = 'none';
+                    irispre.style.display = 'none';
+                    weather.style.display = 'block';
+                    weatherpre.style.display = 'block';
+                }
+            }
         </script>
 
     </body>
