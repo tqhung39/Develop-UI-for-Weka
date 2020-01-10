@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" type="text/css"/>
     <link rel="stylesheet" href="style.css" type="text/css">
     <link rel="stylesheet" href="style.css" type="text/css"/>
@@ -24,6 +25,9 @@
             background-color: #f1f1f1;
             color: black;
             text-align: center;
+        }
+        .page-footer {
+            margin-left: 300px;
         }
         .start-btn{
             display: inline-block;
@@ -57,20 +61,20 @@
     <body>
 
         <!-- Sidebar/menu -->
-        <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+        <nav class="w3-sidebar bg-primary w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
             <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
             <div class="w3-container">
-                <h3 class="w3-padding-64"><b>Weka<br>Website</b></h3>
+                <h3 class="w3-padding-64 text-light"><b>Weka<br>Website</b></h3>
             </div>
             <div class="w3-bar-block">
-                <a href="home.html" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
-                <a href="#footer" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+                <a href="home.html" onclick="w3_close()" class="w3-bar-item w3-button text-light">Home</a>
+                <a href="#footer" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white text-light">Contact</a>
                 <div class="w3-dropdown-hover">
-                    <button class="w3-button">List of Dataset</button>
+                    <button class="w3-button text-light">List of Dataset</button>
                     <div class="w3-dropdown-content w3-bar-block w3-border">
-                        <a href="glass" class="w3-bar-item w3-button">Glass </a>
-                        <a href="iris" class="w3-bar-item w3-button">Iris.2D</a>
-                        <a href="weather" class="w3-bar-item w3-button">Weathernominal</a>
+                        <p class="w3-bar-item w3-button text-light">Glass </p>
+                        <p href="iris" class="w3-bar-item w3-button text-light">Iris.2D</p>
+                        <p href="weather" class="w3-bar-item w3-button text-light">Weathernominal</p>
                     </div>
                 </div>
 
@@ -89,12 +93,13 @@
 
             <!-- Header -->
             <div class="w3-container" style="margin-top:-100px" id="showcase">
-                <h1 class="w3-jumbo" align="center"><b>EXPLORER</b></h1>
+                <br/>
+                <h1 class="w3-jumbo text-primary" align="center"><b>EXPLORER</b></h1>
     <form method="post" action="uploadFile" enctype="multipart/form-data">
-        <h3>Choose a dataset: <input type="file" name="uploadFile"/><input type="submit" value="Upload"/></h3>
+        <h3>Choose a dataset: <input  type="file" name="uploadFile"/><input class="btn btn-primary" type="submit" value="Upload"/></h3>
     </form>
                 </br>
-                <h5>Choose dataset to preprocess and classify:
+                <h5>Select dataset to preprocess and classify:
             <select id="classify">
                 <option value="glass">Glass</option>
                 <option value="iris2D">Iris2D</option>
@@ -103,7 +108,7 @@
             </h5>   
             <button class="start-btn" type="button" onclick="getSelected()">Start</button>
             <div class="w3-container" style="margin-top:80px" id="preprocess">
-                <h3 class="w3-xxxlarge w3-text-red"><b>Preprocess:</b></h3>
+                <h3 class="w3-xxxlarge w3-text-blue"><b>Preprocess:</b></h3>
             </div>
             <div class="w3-row-padding">
                 <div class="w3-half" id="glasspre" style="display:none">
@@ -119,7 +124,7 @@
                     <h3><a href="weather-preprocess.jsp">Weathernominal Dataset</a></h3>
                 </div>
             <div class="w3-container" id="designers" style="margin-top:75px">
-                <h3 class="w3-xxxlarge w3-text-red"><b>Classify:</b></h3>
+                <h3 class="w3-xxxlarge w3-text-blue"><b>Classify:</b></h3>
             </div>
 
             <!-- Photo grid (modal) -->
@@ -156,14 +161,14 @@
             </div> 
 
             <!-- End page content -->
+            </div>
+            </div>
         </div>
-    <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:50px;padding-right:600px">
-        <p class="w3-right"><b>2019 All Rights Reserved</b></p>
-        </br>
-        <p class="w3-right" style="margin-right:-227px;"><b>Powered by Tran Quoc Hung</b></p>
-        </br>
-        <p class="w3-right" style="margin-right:-295px;"><b>Email: quochung.030997@gmail.com</b></p>
-    </div>       
+              <div class="page-footer bg-light">
+                  <div class="cotainer">
+                      <h5>H</h5>
+                  </div>
+                </div>
         <script>
             // Script to open and close sidebar
             function w3_open() {

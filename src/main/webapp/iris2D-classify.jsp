@@ -250,7 +250,7 @@
                     <div class="col-md-4" id="irisnb" style="display:none">
                         <h1 style="color:red"align="center">Classifier output: </h1>
                         <h5><%
-                            String FILE_PATH = "C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/iris.2D.arff";
+                            String FILE_PATH = "H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/iris.2D.arff";
 
                             String TRAINING_DATA_SET_FILENAME = FILE_PATH;
                             String TESTING_DATA_SET_FILENAME = "";
@@ -331,7 +331,7 @@
                         <h1 style="color:red"align="center">Classifier output: </h1>
                         <h5>
                             <%
-                                DataSource source = new DataSource("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/iris.2D.arff");
+                                DataSource source = new DataSource("H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/iris.2D.arff");
                                 Instances dataset = source.getDataSet();	
                                 //set class index to the last attribute
                                 dataset.setClassIndex(dataset.numAttributes()-1);
@@ -348,7 +348,7 @@
                         //evaluate using the test dataset
 
                                 //test dataset for evaluation
-                                DataSource source1 = new DataSource("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/iris.2D.arff");
+                                DataSource source1 = new DataSource("H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/iris.2D.arff");
                                 Instances testDataset = source1.getDataSet();
                                 //set class index to the last attribute
                                 testDataset.setClassIndex(testDataset.numAttributes()-1);
@@ -453,7 +453,7 @@
                             <%=eval2.recall(0)%>
                         </h2>
                     </div>
-                    <div class="col-md-4" id="chartContainer" style="display: none; padding-top: 40px; padding-left: 40px;"></div>   
+                    <div class="col-md-4" id="chartContainer" style="display: none; width: 36%; padding-top: 40px; padding-left: 40px;"></div>   
                 </div>
         </div>
     </body>

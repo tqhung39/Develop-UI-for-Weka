@@ -84,7 +84,7 @@
                             </table>
                         </div>
                         <div class="col-md-4" id="iris2" style="display: none">
-                             <h5><%= com.thesis.Iris.getDataSet("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/iris.2D.arff")%></h5>
+                             <h5><%= com.thesis.Iris.getDataSet("H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/iris.2D.arff")%></h5>
                         </div>
         </div>
     </body>
