@@ -36,7 +36,11 @@ public class Glass {
             BufferedReader reader;
             ArrayList<String>dataset = new ArrayList<String>();
             try {
+<<<<<<< HEAD
                 reader = new BufferedReader(new FileReader("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff"));
+=======
+                reader = new BufferedReader(new FileReader("H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff"));
+>>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
                   String line = reader.readLine();
                 while(line != null ) {
                     if (line.charAt(0) == '%'){

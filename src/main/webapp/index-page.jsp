@@ -96,10 +96,17 @@
                 <br/>
                 <h1 class="w3-jumbo text-primary" align="center"><b>EXPLORER</b></h1>
     <form method="post" action="uploadFile" enctype="multipart/form-data">
+<<<<<<< HEAD
         <h3>Choose a dataset: <input  type="file" name="uploadFile" id="upload"/><input class="btn btn-primary" type="submit" value="Upload"/></h3>
     </form>
                 </br>
 <!--                <h5>Select dataset to preprocess and classify:
+=======
+        <h3>Choose a dataset: <input  type="file" name="uploadFile"/><input class="btn btn-primary" type="submit" value="Upload"/></h3>
+    </form>
+                </br>
+                <h5>Select dataset to preprocess and classify:
+>>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
             <select id="classify">
                 <option value="glass">Glass</option>
                 <option value="iris2D">Iris2D</option>

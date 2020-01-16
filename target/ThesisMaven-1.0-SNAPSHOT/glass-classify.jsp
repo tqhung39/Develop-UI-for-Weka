@@ -69,11 +69,19 @@
                 font-size: 30px;
             }
         </style>
+<<<<<<< HEAD
         <title>Glass Classification</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-primary">
   <a class="navbar-brand pl-5 text-light">Glass Classification</a>
+=======
+        <title>Classify</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <a class="navbar-brand pl-5 text-light">Navbar</a>
+>>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
 </nav>
             <div class="container">
                 <div id="classify">
@@ -87,6 +95,7 @@
                                 <option value="smo">SMO</option>
                             </select>
                         </h4>
+<<<<<<< HEAD
                         <br>
                         <button class="btn btn-primary" type="button" onclick="getSelected()">Start</button>
                         <br>
@@ -111,10 +120,22 @@
                         <a href="glass-comparison.jsp"><button class="btn btn-primary" type="button" onclick="saveResult()">Compare</button></a>
                             <br>
                             </div>                   
+=======
+                        </br>
+                        <button class="btn btn-primary" type="button" onclick="getSelected()">Start</button>
+                        </br>
+                        <button class="btn btn-primary" id="stop-btn" type="button" onclick="">Stop</button>                         
+                        </br>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" type="button" onclick="showChart()">Compare</button> 
+                        </div>                   
+>>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
                     <div class="col-md-7 ml-5 bg-light" id="glassnb" style="display:none">
                         <h1 class="text-primary" align="center">Classifier output: </h1>
                         <h5><%
-                            String FILE_PATH = "C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff";
+                            Hashtable<String, Double> nb = new Hashtable<String, Double>();
+                            Hashtable<String, Double> j48 = new Hashtable<String, Double>();
+                            Hashtable<String, Double> smo = new Hashtable<String, Double>();
+                            String FILE_PATH = "H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff";
 
                             String TRAINING_DATA_SET_FILENAME = FILE_PATH;
                             String TESTING_DATA_SET_FILENAME = "";
@@ -150,6 +171,12 @@
                             Evaluation eval = new Evaluation(trainingDataSet);
                             if (testingDataSet != null) {
                                 eval.evaluateModel(classifier, testingDataSet);
+                                nb.put("precision", eval.precision(0));                                
+                                nb.put("recall", eval.recall(0));
+                                nb.put("mae", eval.meanAbsoluteError());
+                                nb.put("rmse", eval.rootMeanSquaredError());
+                                System.out.println("cccccccccccccccccccccccccccccccccccc");
+                                System.out.println(nb);
                             } else {
                                 eval.crossValidateModel(classifier, trainingDataSet, 10, new Random(1));
                             }
@@ -163,6 +190,13 @@
                             <ul>        
                         <li>Correctly Classified Instances
                             <%=eval.correct()%>
+                            <%
+                                nb.put("precision", eval.precision(0));                                
+                                nb.put("recall", eval.recall(0));
+                                nb.put("mae", eval.meanAbsoluteError());
+                                nb.put("rmse", eval.rootMeanSquaredError());
+                                System.out.println(nb);
+                                    %>
                             <%=eval.pctCorrect()%>%
                         </li>
                         <li>InCorrectly Classified Instances
@@ -196,7 +230,7 @@
                         <h1 class="text-primary"  align="center">Classifier output: </h1>
                         <h5>
                             <%
-                                DataSource source = new DataSource("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff");
+                                DataSource source = new DataSource("H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff");
                                 Instances dataset = source.getDataSet();	
                                 //set class index to the last attribute
                                 dataset.setClassIndex(dataset.numAttributes()-1);
@@ -213,7 +247,7 @@
                         //evaluate using the test dataset
 
                                 //test dataset for evaluation
-                                DataSource source1 = new DataSource("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff");
+                                DataSource source1 = new DataSource("H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff");
                                 Instances testDataset = source1.getDataSet();
                                 //set class index to the last attribute
                                 testDataset.setClassIndex(testDataset.numAttributes()-1);
@@ -299,8 +333,13 @@
                             <%=eval2.incorrect()%>
                             <%=eval2.pctIncorrect()%>%
                             
+<<<<<<< HEAD
                         </li>
                         <li>Kappa statistic
+=======
+                        </h2>
+                        <h2 align="left">Kappa statistic
+>>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
                             <%=eval2.kappa()%>
                         </li>
                         <li>Mean absolute error
@@ -324,10 +363,16 @@
                         </ul>
                     </div>
                     </div>
+<<<<<<< HEAD
+=======
+                    <div class="col-md-4" id="chartContainer" style="display: none; width: 100%;"></div>
+                    </div>
+>>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
                 </div>
         </div>
         </div>
         <script>
+<<<<<<< HEAD
             function clearComparision(){              
                 localStorage.clear();
                 document.getElementById("nbcom").checked === false;
@@ -342,11 +387,20 @@
                 var j48result = {};
                 var smoresult = {};
             if (nbcom.checked === true) {
+=======
+            function saveResult() {
+                var method = document.getElementById("classifierselect");
+                var methodname = method.options[method.selectedIndex].text;
+                console.log(methodname);
+                var result = {};
+            if (methodname === 'NaiveBayes') {
+>>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
                 nb = {
                     precision: <%=eval.precision(0)%>,
                     recall: <%=eval.recall(0)%>,  
                     mae: <%=eval.meanAbsoluteError()%>,
                     rmse: <%=eval.rootMeanSquaredError()%>           
+<<<<<<< HEAD
         };
                 nbresult = nb;
                 localStorage.setItem('nb', JSON.stringify(nbresult));
@@ -355,12 +409,20 @@
             }
             
             if (j48com.checked === true){
+=======
+            };
+                result.nb = nb;
+            }
+            
+            if (methodname === 'J48'){
+>>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
                 j48 = {
                     precision: <%=eval1.precision(0)%>,
                     recall: <%=eval1.recall(0)%>,  
                     mae: <%=eval1.meanAbsoluteError()%>,
                     rmse: <%=eval1.rootMeanSquaredError()%>
             };
+<<<<<<< HEAD
                 j48result = j48;
                 localStorage.setItem('nb', JSON.stringify(nbresult));
                 localStorage.setItem('j48', JSON.stringify(j48result));
@@ -368,11 +430,18 @@
             }
             
             if (smocom.checked === true) {
+=======
+                result.j48 = j48;
+            }
+            
+            if (methodname === 'SMO') {
+>>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
                 smo = {
                     precision: <%=eval2.precision(0)%>,
                     recall: <%=eval2.recall(0)%>,  
                     mae: <%=eval2.meanAbsoluteError()%>,
                     rmse: <%=eval2.rootMeanSquaredError()%>
+<<<<<<< HEAD
             };  
                 smoresult = smo;
                 localStorage.setItem('nb', JSON.stringify(nbresult));
@@ -454,12 +523,24 @@
                 localStorage.setItem('smo', JSON.stringify(smoresult));
        }
        }
+=======
+            };
+                result.smo = smo;
+                
+            }
+        localStorage.setItem('result', JSON.stringify(result)); 
+       }  
+>>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
             function getSelected(){
                 var select = document.getElementById("classifierselect");
                 var selected = select.options[select.selectedIndex].text;
                 var nb = document.getElementById("glassnb");
                 var j48 = document.getElementById("glassj48");
                 var smo = document.getElementById("glasssmo");
+<<<<<<< HEAD
+=======
+
+>>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
                 if (selected === 'NaiveBayes'){
                     nb.style.display = "block";
                     j48.style.display = "none";
@@ -473,10 +554,116 @@
                     j48.style.display = "none";
                     smo.style.display = "block";
                 }
+<<<<<<< HEAD
 		}
             function stopAlert(){
                 alert('The classification has been stopped');
             }                
+=======
+                    saveResult();
+		}
+            function stopAlert(){
+                alert('The classification has been stopped');
+            }    
+            function showChart(){
+                var chartselected = document.getElementById("chartContainer");                
+                if (chartselected.style.display === 'none'){
+                    chartselected.style.display = 'block';
+                } else {
+                    chartselected.style.display = 'none';
+                } 
+            }
+            window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                    animationEnabled: true,
+                    theme: "light2",
+                    title:{
+                            text: "Glass Result"
+                    },
+                    axisX:{
+                            crosshair: {
+                                    enabled: true,
+                                    snapToDataPoint: true
+                            }
+                    },
+                    axisY: {
+                            crosshair: {
+                                    enabled: true
+                            }
+                    },
+                    toolTip:{
+                            shared:true
+                    },  
+                    legend:{
+                            cursor:"pointer",
+                            verticalAlign: "bottom",
+                            horizontalAlign: "left",
+                            dockInsidePlotArea: true,
+                            itemclick: toogleDataSeries
+                    },
+                    data: [{
+                            type: "line",
+                            showInLegend: true,
+                            name: "Precision",
+                            markerType: "square",
+                            color: "#F08080",
+                            dataPoints: [
+                               { label:"NaiveBayes", y:0.4553},
+                               { label:"J48", y:0.6667},
+                               { label:"SMO", y:0.5932},
+                            ]
+                    },
+                    {
+                            type: "line",
+                            showInLegend: true,
+                            name: "Recall",
+                            lineDashType: "dash",
+                            dataPoints: [
+                               { label:"NaiveBayes", y:0.7286},
+                               { label:"J48", y:0.7143},
+                               { label:"SMO", y:0.5000}  
+                            ]
+                    },
+                    {
+                            type: "line",
+                            showInLegend: true,
+                            name: "Mean absolute error",
+                            lineDashType: "shortDash",
+                            color: "blue",
+                            dataPoints: [
+                               { label:"NaiveBayes", y:0.1541},
+                               { label:"J48", y:0.1026},
+                               { label:"SMO", y:0.2137}  
+                            ]
+                    },
+                    {
+                            type: "line",
+                            showInLegend: true,
+                            name: "Root mean squared error",
+                            lineDashType: "dash",
+                            dataPoints: [
+                               { label:"NaiveBayes", y:0.3399},
+                               { label:"J48", y:0.2897},
+                               { label:"SMO", y:0.3166}  
+                            ]
+                    }
+                ]
+            });
+            chart.render();
+
+            function toogleDataSeries(e){
+                    if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                            e.dataSeries.visible = false;
+                    } else{
+                            e.dataSeries.visible = true;
+                    }
+                    chart.render();
+            }
+
+            }
+            
+>>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
         </script>
     </body>
 </html>

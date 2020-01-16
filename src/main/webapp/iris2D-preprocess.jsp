@@ -82,6 +82,7 @@
                             </tr>
                         </table>
                     </div>
+<<<<<<< HEAD
                 </div>
                         <div class="" id="iris2" style="display: none">
                             <hr>
@@ -89,5 +90,31 @@
                             <br/>
                              <%= com.thesis.Iris.getDataSet("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/iris.2D.arff")%>
                 </div>
+=======
+                        <div class="col-md-4" id="iris" style="display: none">
+                            <table id="iris2Dattribute" class="table-dataset" style="width: 100%">
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Name</th>
+                                </tr>
+                                <tr>
+                                    <td align="center">1</td>
+                                    <td align="center"><a href="chart/iris2D-chart/petallength-chart.html">petallength</a></td>
+                                </tr>
+                                 <tr>
+                                    <td align="center">2</td>
+                                    <td align="center"><a href="chart/iris2D-chart/petalwidth-chart.html">petalwidth</a></td>
+                                </tr>
+                                 <tr>
+                                    <td align="center">3</td>
+                                    <td align="center"><a href="chart/iris2D-chart/class-chart.html">class</a></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-4" id="iris2" style="display: none">
+                             <h5><%= com.thesis.Iris.getDataSet("H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/iris.2D.arff")%></h5>
+                        </div>
+        </div>
+>>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
     </body>
 </html>

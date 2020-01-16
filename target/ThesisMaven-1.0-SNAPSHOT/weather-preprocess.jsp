@@ -89,6 +89,7 @@
                                 <td><a href="chart/glass-chart/Si-chart.html">play</a></td>
                             </tr>
                         </table>
+<<<<<<< HEAD
                     </div>
                 </div>
                         <div class="" id="weather2" style="display: none">
@@ -98,6 +99,12 @@
                              <% for (String line: com.thesis.Weathernominal.getFile("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff")) {%>
                              <p style="font-size: 20"><%= line %><p>
                              <% } %>
+=======
+                        </div>
+                        <div class="col-md-4" id="weather2" style="display: none">
+                             <h5><%= com.thesis.Weathernominal.getDataSet("H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/weather.nominal.arff")%></h5>
+                        </div>    
+>>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
                 </div>
     </body>
 </html>

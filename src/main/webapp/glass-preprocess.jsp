@@ -41,7 +41,11 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+<<<<<<< HEAD
   <a class="navbar-brand pl-5 text-light">Glass Preprocessing</a>
+=======
+  <a class="navbar-brand pl-5 text-light">Navbar</a>
+>>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
 </nav>
         </br>
         <div class="container">
@@ -111,7 +115,11 @@
                             <hr>
                             <h2 class="text-primary">Input</h2>
                             <br/>
+<<<<<<< HEAD
                              <% for (String line: com.thesis.Glass.getFile("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff")) {%>
+=======
+                             <% for (String line: com.thesis.Glass.getFile("H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff")) {%>
+>>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
                              <p style="font-size: 20"><%= line %><p>
                              <% } %>
                 </div>
