@@ -372,7 +372,6 @@
         </div>
         </div>
         <script>
-<<<<<<< HEAD
             function clearComparision(){              
                 localStorage.clear();
                 document.getElementById("nbcom").checked === false;
@@ -387,20 +386,19 @@
                 var j48result = {};
                 var smoresult = {};
             if (nbcom.checked === true) {
-=======
-            function saveResult() {
-                var method = document.getElementById("classifierselect");
-                var methodname = method.options[method.selectedIndex].text;
-                console.log(methodname);
-                var result = {};
-            if (methodname === 'NaiveBayes') {
->>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
+function saveResult() {
+                var nbcom = document.getElementById("nbcom");
+                var j48com = document.getElementById("j48com");
+                var smocom = document.getElementById("smocom");
+                var nbresult = {};
+                var j48result = {};
+                var smoresult = {};
+            if (nbcom.checked === true) {
                 nb = {
                     precision: <%=eval.precision(0)%>,
                     recall: <%=eval.recall(0)%>,  
                     mae: <%=eval.meanAbsoluteError()%>,
                     rmse: <%=eval.rootMeanSquaredError()%>           
-<<<<<<< HEAD
         };
                 nbresult = nb;
                 localStorage.setItem('nb', JSON.stringify(nbresult));
@@ -409,20 +407,12 @@
             }
             
             if (j48com.checked === true){
-=======
-            };
-                result.nb = nb;
-            }
-            
-            if (methodname === 'J48'){
->>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
                 j48 = {
                     precision: <%=eval1.precision(0)%>,
                     recall: <%=eval1.recall(0)%>,  
                     mae: <%=eval1.meanAbsoluteError()%>,
                     rmse: <%=eval1.rootMeanSquaredError()%>
             };
-<<<<<<< HEAD
                 j48result = j48;
                 localStorage.setItem('nb', JSON.stringify(nbresult));
                 localStorage.setItem('j48', JSON.stringify(j48result));
@@ -430,18 +420,11 @@
             }
             
             if (smocom.checked === true) {
-=======
-                result.j48 = j48;
-            }
-            
-            if (methodname === 'SMO') {
->>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
                 smo = {
                     precision: <%=eval2.precision(0)%>,
                     recall: <%=eval2.recall(0)%>,  
                     mae: <%=eval2.meanAbsoluteError()%>,
                     rmse: <%=eval2.rootMeanSquaredError()%>
-<<<<<<< HEAD
             };  
                 smoresult = smo;
                 localStorage.setItem('nb', JSON.stringify(nbresult));
@@ -522,25 +505,13 @@
                 localStorage.setItem('j48', JSON.stringify(j48result));
                 localStorage.setItem('smo', JSON.stringify(smoresult));
        }
-       }
-=======
-            };
-                result.smo = smo;
-                
-            }
-        localStorage.setItem('result', JSON.stringify(result)); 
        }  
->>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
             function getSelected(){
                 var select = document.getElementById("classifierselect");
                 var selected = select.options[select.selectedIndex].text;
                 var nb = document.getElementById("glassnb");
                 var j48 = document.getElementById("glassj48");
                 var smo = document.getElementById("glasssmo");
-<<<<<<< HEAD
-=======
-
->>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
                 if (selected === 'NaiveBayes'){
                     nb.style.display = "block";
                     j48.style.display = "none";
@@ -554,12 +525,10 @@
                     j48.style.display = "none";
                     smo.style.display = "block";
                 }
-<<<<<<< HEAD
 		}
             function stopAlert(){
                 alert('The classification has been stopped');
             }                
-=======
                     saveResult();
 		}
             function stopAlert(){

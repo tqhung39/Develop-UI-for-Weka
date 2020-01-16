@@ -317,10 +317,7 @@
                         </ul>
                     </div>
                     </div>
-<<<<<<< HEAD
-=======
                     <div class="col-md-4" id="chartContainer" style=" display: none; width: 36%; padding-top: 40px; padding-left: 40px;"></div>
->>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
                 </div>
         </div>
         </div>
