@@ -7,7 +7,16 @@ import weka.classifiers.bayes.NaiveBayes;
 import weka.core.Instances;
 import weka.core.converters.ArffLoader;
 import java.util.Random;
-
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Weathernominal {
     public static Instances getDataSet(String fileName) {
@@ -23,13 +32,35 @@ public class Weathernominal {
         }
         return null;
     }
+        public static ArrayList<String> getFile(String fileName) throws IOException{
+            BufferedReader reader;
+            ArrayList<String>dataset = new ArrayList<String>();
+            try {
+                reader = new BufferedReader(new FileReader("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/weather.nominal.arff"));
+                  String line = reader.readLine();
+                while(line != null ) {
+                    if (line.charAt(0) == '%'){
+                        line = reader.readLine();
+                        System.out.println(line);
+                        continue;
+                    }
+                    dataset.add(line);
+                    line = reader.readLine();
+            }
+            } catch (FileNotFoundException ex) {
+            	Logger.getLogger(Weathernominal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                   return dataset;
+        }
     public static void main(String[] args) {
         String FILE_PATH = "C:\\Program Files\\Weka-3-8\\data\\";
+
         String TRAINING_DATA_SET_FILENAME = FILE_PATH + "weather.nominal.arff";
         String TESTING_DATA_SET_FILENAME = "";
-        String PREDICTION_DATA_SET_FILENAME = "";
+
+
         Instances testingDataSet;
-        Instances predictingDataSet;
+
         try {
             Instances trainingDataSet = getDataSet(TRAINING_DATA_SET_FILENAME);
             if (!TESTING_DATA_SET_FILENAME.equals("")) {
@@ -54,4 +85,5 @@ public class Weathernominal {
             System.out.println(e);
         }
     }
+
 }

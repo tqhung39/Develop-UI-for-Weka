@@ -55,7 +55,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                    <td>Glass</td>
+                    <td>Iris 2D</td>
                     <td><button class="btn btn-primary" onclick="irisFunction()">Show/Hide</button></td>
                     </tbody>
                   </table>
@@ -70,11 +70,11 @@
                             </thead>
                             <tr>
                                 <td>1</td>
-                                <td><a href="chart/iris2D-chart/pentallength-chart.html">pentallength</a></td>
+                                <td><a href="chart/iris2D-chart/petallength-chart.html">pentallength</a></td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td><a href="chart/iris2D-chart/pentalwidth-chart.html">pentalwidth</a></td>
+                                <td><a href="chart/iris2D-chart/petalwidth-chart.html">pentalwidth</a></td>
                             </tr>
                             <tr>
                                 <td>3</td>
@@ -87,9 +87,7 @@
                             <hr>
                             <h2 class="text-primary">Input</h2>
                             <br/>
-                             <% for (String line: com.thesis.Iris.getFile("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/iris.2D.arff")) {%>
-                             <p style="font-size: 20"><%= line %><p>
-                             <% } %>
+                             <%= com.thesis.Iris.getDataSet("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/iris.2D.arff")%>
                 </div>
     </body>
 </html>

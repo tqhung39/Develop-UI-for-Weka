@@ -1,23 +1,22 @@
 package com.thesis;
 
-
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.core.Instances;
 import weka.core.converters.ArffLoader;
-
-import java.util.ArrayList;
 import java.util.Random;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 
 public class Iris {
     public static Instances getDataSet(String fileName) {
@@ -49,7 +48,7 @@ public class Iris {
                     line = reader.readLine();
             }
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(Iris.class.getName()).log(Level.SEVERE, null, ex);
+            	Logger.getLogger(Iris.class.getName()).log(Level.SEVERE, null, ex);
             }
                    return dataset;
         }
