@@ -92,7 +92,7 @@
                         </table>
                         </div>
                         <div class="col-md-4" id="weather2" style="display: none">
-                             <h5><%= com.thesis.Weathernominal.getDataSet("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/weather.nominal.arff")%></h5>
+                             <h5><%= com.thesis.Weathernominal.getDataSet("H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/weather.nominal.arff")%></h5>
                         </div>    
                 </div>
         </div>

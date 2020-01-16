@@ -19,13 +19,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Raleway">
         <style>
             body {
-                background-image: url('images/background.jpg');
+                font-family: "Raleway", "sans-serif";
             }
             table, th, td {
             padding: 10px;
@@ -46,211 +48,64 @@
                 min-height: 500px;
                 border-radius: 12px;
             }
-            .start-btn, .compare-btn{
-                display: inline-block;
-                margin-bottom: 0;
-                font-weight: 400;
-                text-align: center;
-                white-space: nowrap;
-                vertical-align: middle;
-                -ms-touch-action: manipulation;
-                touch-action: manipulation;
-                cursor: pointer;
-                background-image: none;
-                border: 1px solid transparent;
-                padding: 6px 12px;
-                font-size: 14px;
-                line-height: 1.42857143;
-                border-radius: 4px;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-                color: #fff;
-                background-color: #337ab7;
-                border-color: #2e6da4;
-                margin-top: 20px;
-                margin-left: 100px;
-                padding-left: 50px;
-                padding-right: 50px;
+            .btn {
+                font-size: 20px;
+                width: 50%;
+                margin-left: 40px;
             }
-            .stop-btn{
-                display: inline-block;
-                margin-bottom: 0;
-                font-weight: 400;
-                text-align: center;
-                white-space: nowrap;
-                vertical-align: middle;
-                -ms-touch-action: manipulation;
-                touch-action: manipulation;
-                cursor: pointer;
-                background-image: none;
-                border: 1px solid transparent;
-                padding: 6px 12px;
-                font-size: 14px;
-                line-height: 1.42857143;
-                border-radius: 4px;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-                color: #fff;
-                background-color: #337ab7;
-                border-color: #2e6da4;
-                margin-top: 20px;
-                margin-left: 10px;
-                padding-left: 50px;
-                padding-right: 50px;
+            li {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            .navbar-brand {
+                font-weight: 800;
+                font-size: 30px;
             }
         </style>
-        <title>Classify</title>
-        <script>
-            window.onload = function () {
-            var chart = new CanvasJS.Chart("chartContainer", {
-                    animationEnabled: true,
-                    theme: "light2",
-                    title:{
-                            text: "Weathernominal Result"
-                    },
-                    axisX:{
-                            crosshair: {
-                                    enabled: true,
-                                    snapToDataPoint: true
-                            }
-                    },
-                    axisY: {
-                            crosshair: {
-                                    enabled: true
-                            }
-                    },
-                    toolTip:{
-                            shared:true
-                    },  
-                    legend:{
-                            cursor:"pointer",
-                            verticalAlign: "bottom",
-                            horizontalAlign: "left",
-                            dockInsidePlotArea: true,
-                            itemclick: toogleDataSeries
-                    },
-                    data: [{
-                            type: "line",
-                            showInLegend: true,
-                            name: "Precision",
-                            markerType: "square",
-                            color: "#F08080",
-                            dataPoints: [
-                               { label:"NaiveBayes", y:0.6364},
-                               { label:"J48", y:0.6250},
-                               { label:"SMO", y:0.7000},
-                            ]
-                    },
-                    {
-                            type: "line",
-                            showInLegend: true,
-                            name: "Recall",
-                            lineDashType: "dash",
-                            dataPoints: [
-                               { label:"NaiveBayes", y:0.7778},
-                               { label:"J48", y:0.5556},
-                               { label:"SMO", y:1.0000},  
-                            ]
-                    },
-                    {
-                            type: "line",
-                            showInLegend: true,
-                            name: "Mean absolute error",
-                            lineDashType: "shortDash",
-                            color: "blue",
-                            dataPoints: [
-                               { label:"NaiveBayes", y:0.4374},
-                               { label:"J48", y:0.4167},
-                               { label:"SMO", y:0.3571}  
-                            ]
-                    },
-                    {
-                            type: "line",
-                            showInLegend: true,
-                            name: "Root mean squared error",
-                            lineDashType: "dash",
-                            dataPoints: [
-                               { label:"NaiveBayes", y:0.4916},
-                               { label:"J48", y:0.5984},
-                               { label:"SMO", y:0.5976}  
-                            ]
-                    }
-                ]
-            });
-            chart.render();
-
-            function toogleDataSeries(e){
-                    if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-                            e.dataSeries.visible = false;
-                    } else{
-                            e.dataSeries.visible = true;
-                    }
-                    chart.render();
-            }
-
-            }
-            function getSelected(){
-                var select = document.getElementById("classifierselect");
-                var selected = select.options[select.selectedIndex].text;
-                var nb = document.getElementById("weathernb");
-                var j48 = document.getElementById("weatherj48");
-                var smo = document.getElementById("weathersmo");
-                if (selected === 'NaiveBayes'){
-                    nb.style.display = "block";
-                    j48.style.display = "none";
-                    smo.style.display = "none";
-                    chartselected.style.display = "block";
-                } else if(selected === 'J48') {
-                    nb.style.display = "none";
-                    j48.style.display = "block";
-                    smo.style.display = "none";
-                    chartselected.style.display = "block";
-                } else {
-                    nb.style.display = "none";
-                    j48.style.display = "none";
-                    smo.style.display = "block";
-                    chartselected.style.display = "block";
-                }
-		}
-                function showChart(){
-                var chartselected = document.getElementById("chartContainer");                
-                if (chartselected.style.display === 'none'){
-                    chartselected.style.display = 'block';
-                } else {
-                    chartselected.style.display = 'none';
-                } 
-            }
-        </script>
+        <title>Weather Classification</title>
     </head>
     <body>
-        <div>
-            <div class="title">
-                <p style="font-size: 50px; text-align: center">Weathernominal Dataset Classification<p>
-            </div>
-                <div id="classify" class="row">
-                    <div class="col-md-auto">
-                    <h1 style="color: red; margin-left:30px;">Classifier</h1>
-                    </div>
-                    <div class="col-md-4">                        
-                        <h3>Choose:
-                            <select id="classifierselect">
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <a class="navbar-brand pl-5 text-light">Weather Classification</a>
+</nav>
+            <div class="container">
+                <div id="classify">
+                    </br>
+                    <div class="row">
+                    <div class="col-md-4 pt-3 bg-light">                       
+                        <h4 class="pl-4">Choose:
+                            <select id="classifierselect" class="ml-2">
                                 <option value="nb">NaiveBayes</option>
                                 <option value="j48">J48</option>
                                 <option value="smo">SMO</option>
                             </select>
-                        </h3>                        
-                        </br>
-                        <button class="start-btn" type="button" onclick="getSelected()">Start</button>
-                        <button class="stop-btn" id="stop-btn" type="button" onclick="">Stop</button>                         
-                        </br>
-                        <button class="compare-btn" type="button" onclick="showChart()">Compare result</button>  
-                        </div>
-                    <div class="col-md-4" id="weathernb" style="display:none">
-                        <h1 style="color:red"align="center">Classifier output: </h1>
+                        </h4>
+                        <br>
+                        <button class="btn btn-primary" type="button" onclick="getSelected()">Start</button>
+                        <br>
+                        <button class="btn btn-primary" id="stop-btn" type="button" onclick="">Stop</button>                         
+                        <br>
+                        <br>
+                        <h4 class="pl-4 pt-3">Select algorithm to compare:
+                        </h4>
+                        <div class="form-check form-check-inline pl-4">
+                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="nbcom" value="1">
+                            <label class="form-check-label" for="inlineRadio1">Naive Bayes</label>
+                          </div>
+                          <div class="form-check form-check-inline pl-4">
+                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="j48com" value="2">
+                            <label class="form-check-label" for="inlineRadio2">J48</label>
+                          </div>
+                          <div class="form-check form-check-inline pl-4">
+                            <input class="form-check-input" type="checkbox" name="inlineRadioOptions" id="smocom" value="3">
+                            <label class="form-check-label" for="inlineRadio3">SMO</label>
+                          </div>
+                        <br>
+                        <a href="weather-comparison.jsp"><button class="btn btn-primary" type="button" onclick="saveResult()">Compare</button></a>
+                            <br>
+                            </div>                   
+                    <div class="col-md-7 ml-5 bg-light" id="glassnb" style="display:none">
+                        <h1 class="text-primary" align="center">Classifier output: </h1>
                         <h5><%
                             String FILE_PATH = "C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/weather.nominal.arff";
 
@@ -298,39 +153,40 @@
 
 
                             %></h5>
-
-                        <h2 align="left">Correctly Classified Instances
+                            <ul>        
+                        <li>Correctly Classified Instances
                             <%=eval.correct()%>
                             <%=eval.pctCorrect()%>%
-                        </h2>
-                        <h2 align="left">InCorrectly Classified Instances
+                        </li>
+                        <li>InCorrectly Classified Instances
                             <%=eval.incorrect()%>
                             <%=eval.pctIncorrect()%>%
-                        </h2>
-                        <h2 align="left">Kappa statistic
+                        </li>
+                        <li>Kappa statistic
                             <%=eval.kappa()%>
-                        </h2>
-                        <h2 align="left">Mean absolute error
+                        </li>
+                        <li>Mean absolute error
                             <%=eval.meanAbsoluteError()%>
-                        </h2>
-                        <h2 align="left">Root mean squared error
+                        </li>
+                        <li>Root mean squared error
                             <%=eval.rootMeanSquaredError()%>
-                        </h2>
-                        <h2 align="left">Relative absolute error
+                        </li>
+                        <li>Relative absolute error
                             <%=eval.relativeAbsoluteError()%>%
-                        </h2>
-                        <h2 align="left">Root relative absolute error
+                        </li>
+                        <li>Root relative absolute error
                             <%=eval.rootRelativeSquaredError()%>%
-                        </h2>
-                        <h2 align="left">Precision
+                        </li>
+                        <li>Precision
                             <%=eval.precision(0)%>
-                        </h2>
-                        <h2 align="left">Recall
+                        </li>
+                        <li>Recall
                             <%=eval.recall(0)%>
-                        </h2>
+                        </li>
+                            </ul>
                     </div>
-                    <div class="col-md-4" id="weatherj48" style="display:none">
-                        <h1 style="color:red"align="center">Classifier output: </h1>
+                    <div class="col-md-7 ml-5 bg-light" id="glassj48" style="display:none">
+                        <h1 class="text-primary"  align="center">Classifier output: </h1>
                         <h5>
                             <%
                                 DataSource source = new DataSource("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/weather.nominal.arff");
@@ -375,38 +231,40 @@
                                 System.out.println(eval.toMatrixString("=== Overall Confusion Matrix ===\n"));
                             %>
                         </h5>
-                        <h2 align="left">Correctly Classified Instances
+                        <ul>
+                        <li>Correctly Classified Instances
                             <%=eval1.correct()%>
                             <%=eval1.pctCorrect()%>%
-                        </h2>
-                        <h2 align="left">InCorrectly Classified Instances
+                        </li>
+                        <li>InCorrectly Classified Instances
                             <%=eval1.incorrect()%>
                             <%=eval1.pctIncorrect()%>%
-                        </h2>
-                        <h2 align="left">Kappa statistic
+                        </li>
+                        <li>Kappa statistic
                             <%=eval1.kappa()%>
-                        </h2>
-                        <h2 align="left">Mean absolute error
+                        </li>
+                        <li>Mean absolute error
                             <%=eval1.meanAbsoluteError()%>
-                        </h2>
-                        <h2 align="left">Root mean squared error
+                        </li>
+                        <li>Root mean squared error
                             <%=eval1.rootMeanSquaredError()%>
-                        </h2>
-                        <h2 align="left">Relative absolute error
+                        </li>
+                        <li>Relative absolute error
                             <%=eval1.relativeAbsoluteError()%>%
-                        </h2>
-                        <h2 align="left">Root relative absolute error
+                        </li>
+                        <li>Root relative absolute error
                             <%=eval1.rootRelativeSquaredError()%>%
-                        </h2>
-                        <h2 align="left">Precision
+                        </li>
+                        <li>Precision
                             <%=eval1.precision(0)%>
-                        </h2>
-                        <h2 align="left">Recall
+                        </li>
+                        <li>Recall
                             <%=eval1.recall(0)%>
-                        </h2>
+                        </li>
+                        </ul>
                     </div>
-                    <div class="col-md-4" id="weathersmo" style="display:none">
-                        <h1 style="color:red"align="center">Classifier output: </h1>
+                    <div class="col-md-7 ml-5 bg-light" id="glasssmo" style="display:none">
+                        <h1 class="text-primary" align="center">Classifier output: </h1>
                         <h1>
                             <%
                                 SMO svm = new SMO();
@@ -424,39 +282,194 @@
                                 System.out.println("Recall = "+eval2.recall(0));
 		
                             %>
-                        </h1>                        
-                        <h2 align="left">Correctly Classified Instances
+                        </h1>
+                        <ul>
+                        <li>Correctly Classified Instances
                             <%=eval2.correct()%>
                             <%=eval2.pctCorrect()%>%
-                        </h2>
-                        <h2 align="left">InCorrectly Classified Instances
+                        </li>
+                        <li>InCorrectly Classified Instances
                             <%=eval2.incorrect()%>
                             <%=eval2.pctIncorrect()%>%
-                        </h2>
-                        <h2 align="left">Kappa statistic
+                            
+                        </li>
+                        <li>Kappa statistic
                             <%=eval2.kappa()%>
-                        </h2>
-                        <h2 align="left">Mean absolute error
+                        </li>
+                        <li>Mean absolute error
                             <%=eval2.meanAbsoluteError()%>
-                        </h2>
-                        <h2 align="left">Root mean squared error
+                        </li>
+                        <li>Root mean squared error
                             <%=eval2.rootMeanSquaredError()%>
-                        </h2>
-                        <h2 align="left">Relative absolute error
+                        </li>
+                        <li>Relative absolute error
                             <%=eval2.relativeAbsoluteError()%>%
-                        </h2>
-                        <h2 align="left">Root relative absolute error
+                        </li>
+                        <li>Root relative absolute error
                             <%=eval2.rootRelativeSquaredError()%>%
-                        </h2>
-                        <h2 align="left">Precision
+                        </li>
+                        <li>Precision
                             <%=eval2.precision(0)%>
-                        </h2>
-                        <h2 align="left">Recall
+                        </li>
+                        <li>Recall
                             <%=eval2.recall(0)%>
-                        </h2>
+                        </li>
+                        </ul>
                     </div>
-                    <div class="col-md-4" id="chartContainer" style=" display: none; padding-top: 40px; padding-left: 40px;"></div>
+                    </div>
                 </div>
-        </div>            
+        </div>
+        </div>
+        <script>
+            function clearComparision(){              
+                localStorage.clear();
+                document.getElementById("nbcom").checked === false;
+                document.getElementById("j48com").checked === false;
+                document.getElementById("smocom").checked === false;  
+            }
+            function saveResult() {
+                var nbcom = document.getElementById("nbcom");
+                var j48com = document.getElementById("j48com");
+                var smocom = document.getElementById("smocom");
+                var nbresult = {};
+                var j48result = {};
+                var smoresult = {};
+            if (nbcom.checked === true) {
+                nb = {
+                    precision: <%=eval.precision(0)%>,
+                    recall: <%=eval.recall(0)%>,  
+                    mae: <%=eval.meanAbsoluteError()%>,
+                    rmse: <%=eval.rootMeanSquaredError()%>           
+        };
+                nbresult = nb;
+                localStorage.setItem('nb', JSON.stringify(nbresult));
+                localStorage.setItem('j48', JSON.stringify(j48result));
+                localStorage.setItem('smo', JSON.stringify(smoresult));
+            }
+            
+            if (j48com.checked === true){
+                j48 = {
+                    precision: <%=eval1.precision(0)%>,
+                    recall: <%=eval1.recall(0)%>,  
+                    mae: <%=eval1.meanAbsoluteError()%>,
+                    rmse: <%=eval1.rootMeanSquaredError()%>
+            };
+                j48result = j48;
+                localStorage.setItem('nb', JSON.stringify(nbresult));
+                localStorage.setItem('j48', JSON.stringify(j48result));
+                localStorage.setItem('smo', JSON.stringify(smoresult));
+            }
+            
+            if (smocom.checked === true) {
+                smo = {
+                    precision: <%=eval2.precision(0)%>,
+                    recall: <%=eval2.recall(0)%>,  
+                    mae: <%=eval2.meanAbsoluteError()%>,
+                    rmse: <%=eval2.rootMeanSquaredError()%>
+            };  
+                smoresult = smo;
+                localStorage.setItem('nb', JSON.stringify(nbresult));
+                localStorage.setItem('j48', JSON.stringify(j48result));
+                localStorage.setItem('smo', JSON.stringify(smoresult));
+            }
+            if (nbcom.checked === true && j48com.checked === true) {
+                nb = {
+                    precision: <%=eval.precision(0)%>,
+                    recall: <%=eval.recall(0)%>,  
+                    mae: <%=eval.meanAbsoluteError()%>,
+                    rmse: <%=eval.rootMeanSquaredError()%>           
+        },
+                j48 = {
+                    precision: <%=eval1.precision(0)%>,
+                    recall: <%=eval1.recall(0)%>,  
+                    mae: <%=eval1.meanAbsoluteError()%>,
+                    rmse: <%=eval1.rootMeanSquaredError()%>
+            };
+                localStorage.setItem('nb', JSON.stringify(nbresult));
+                localStorage.setItem('j48', JSON.stringify(j48result));
+                localStorage.setItem('smo', JSON.stringify(smoresult));            
+       }
+            if (nbcom.checked === true && smocom.checked === true) {
+                nb = {
+                    precision: <%=eval.precision(0)%>,
+                    recall: <%=eval.recall(0)%>,  
+                    mae: <%=eval.meanAbsoluteError()%>,
+                    rmse: <%=eval.rootMeanSquaredError()%>           
+        },
+                smo = {
+                    precision: <%=eval2.precision(0)%>,
+                    recall: <%=eval2.recall(0)%>,  
+                    mae: <%=eval2.meanAbsoluteError()%>,
+                    rmse: <%=eval2.rootMeanSquaredError()%>
+            };  
+                localStorage.setItem('nb', JSON.stringify(nbresult));
+                localStorage.setItem('j48', JSON.stringify(j48result));
+                localStorage.setItem('smo', JSON.stringify(smoresult));            
+       }
+            if (j48com.checked === true && smocom.checked === true) {
+                j48 = {
+                    precision: <%=eval1.precision(0)%>,
+                    recall: <%=eval1.recall(0)%>,  
+                    mae: <%=eval1.meanAbsoluteError()%>,
+                    rmse: <%=eval1.rootMeanSquaredError()%>
+            },
+                smo = {
+                    precision: <%=eval2.precision(0)%>,
+                    recall: <%=eval2.recall(0)%>,  
+                    mae: <%=eval2.meanAbsoluteError()%>,
+                    rmse: <%=eval2.rootMeanSquaredError()%>
+            };  
+                localStorage.setItem('nb', JSON.stringify(nbresult));
+                localStorage.setItem('j48', JSON.stringify(j48result));
+                localStorage.setItem('smo', JSON.stringify(smoresult));            
+       }
+            if (nbcom.checked === true && j48com.checked === true && smocom.checked === true ) {
+                nb = {
+                    precision: <%=eval.precision(0)%>,
+                    recall: <%=eval.recall(0)%>,  
+                    mae: <%=eval.meanAbsoluteError()%>,
+                    rmse: <%=eval.rootMeanSquaredError()%>           
+        },
+                j48 = {
+                    precision: <%=eval1.precision(0)%>,
+                    recall: <%=eval1.recall(0)%>,  
+                    mae: <%=eval1.meanAbsoluteError()%>,
+                    rmse: <%=eval1.rootMeanSquaredError()%>
+            },
+                smo = {
+                    precision: <%=eval2.precision(0)%>,
+                    recall: <%=eval2.recall(0)%>,  
+                    mae: <%=eval2.meanAbsoluteError()%>,
+                    rmse: <%=eval2.rootMeanSquaredError()%>
+            };  
+                localStorage.setItem('nb', JSON.stringify(nbresult));
+                localStorage.setItem('j48', JSON.stringify(j48result));
+                localStorage.setItem('smo', JSON.stringify(smoresult));
+       }
+       }
+            function getSelected(){
+                var select = document.getElementById("classifierselect");
+                var selected = select.options[select.selectedIndex].text;
+                var nb = document.getElementById("glassnb");
+                var j48 = document.getElementById("glassj48");
+                var smo = document.getElementById("glasssmo");
+                if (selected === 'NaiveBayes'){
+                    nb.style.display = "block";
+                    j48.style.display = "none";
+                    smo.style.display = "none";
+                } else if(selected === 'J48') {
+                    nb.style.display = "none";
+                    j48.style.display = "block";
+                    smo.style.display = "none";
+                } else {
+                    nb.style.display = "none";
+                    j48.style.display = "none";
+                    smo.style.display = "block";
+                }
+		}
+            function stopAlert(){
+                alert('The classification has been stopped');
+            }                
+        </script>
     </body>
 </html>

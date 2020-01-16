@@ -9,54 +9,33 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-    <link rel="stylesheet" href="style.css" type="text/css"/>
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <link rel="stylesheet" href="style.css" type="text/css"/>
-    <title>Upload Result</title>
-    <style>
-#dataset {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-#dataset td, #dataset th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#dataset tr:nth-child(even){background-color: #f2f2f2;}
-
-#dataset tr:hover {background-color: #ddd;}
-
-#dataset th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #ff1100;
-  color: white;
-}
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Raleway">
+        <style>
+            body {
+                font-family: "Raleway", "sans-serif";
+            }
 </style>
 </head>
 
 <body>
     <h2>${message}</h2>
-    <table id="dataset">
+    <table class="table">
         <tr>
-            <th>Dataset</th>
-            <th>Date</th>
+            <th class="text-primary">Dataset</th>
+            <th class="text-primary">Date</th>
         </tr>
         <td>${filename}</td>
         <td>${date}</td>
     </table>
     </br>
-    <button class="ui right labeled icon button" onclick="history.back(-1)">
-        <i class="left arrow icon "></i>
-        <p>Back</p>
-        </button>
+    <a href="index-page.jsp"><button class="btn btn-primary ml-5">Back
+        </button></a>
 </body>
 </html>
