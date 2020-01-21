@@ -70,23 +70,23 @@
                             </thead>
                             <tr>
                                 <td>1</td>
-                                <td><a href="chart/glass-chart/RI-chart.html">outlook</a></td>
+                                <td><a href="chart/weathernominal-chart/outlook-chart.html">outlook</a></td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td><a href="chart/glass-chart/Na-chart.html">temperature</a></td>
+                                <td><a href="chart/weathernominal-chart/temperature-chart.html">temperature</a></td>
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td><a href="chart/glass-chart/Mg-chart.html">humidity</a></td>
+                                <td><a href="chart/weathernominal-chart/humidity-chart.html">humidity</a></td>
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td><a href="chart/glass-chart/Al-chart.html">windy</a></td>
+                                <td><a href="chart/weathernominal-chart/windy-chart.html">windy</a></td>
                             </tr>
                             <tr>
                                 <td>5</td>
-                                <td><a href="chart/glass-chart/Si-chart.html">play</a></td>
+                                <td><a href="chart/weathernominal-chart/play-chart.html">play</a></td>
                             </tr>
                         </table>
                     </div>
@@ -95,14 +95,8 @@
                             <hr>
                             <h2 class="text-primary">Input</h2>
                             <br/>
-                             <% for (String line: com.thesis.Weathernominal.getFile("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff")) {%>
-                             <p style="font-size: 20"><%= line %><p>
-                             <% } %>
+                            <h5><%= com.thesis.Weathernominal.getDataSet("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/weather.nominal.arff")%></h5>   
                         </div>
-                        <div class="col-md-4" id="weather2" style="display: none">
-                             <h5><%= com.thesis.Weathernominal.getDataSet("H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/weather.nominal.arff")%></h5>
-                        </div>    
-                </div>
     </body>
 </html>
 

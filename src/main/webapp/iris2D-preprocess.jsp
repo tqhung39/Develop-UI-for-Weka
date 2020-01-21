@@ -82,13 +82,6 @@
                             </tr>
                         </table>
                     </div>
-                </div>
-                        <div class="" id="iris2" style="display: none">
-                            <hr>
-                            <h2 class="text-primary">Input</h2>
-                            <br/>
-                             <%= com.thesis.Iris.getDataSet("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/iris.2D.arff")%>
-                </div>
                         <div class="col-md-4" id="iris" style="display: none">
                             <table id="iris2Dattribute" class="table-dataset" style="width: 100%">
                                 <tr>
@@ -109,8 +102,8 @@
                                 </tr>
                             </table>
                         </div>
-                        <div class="col-md-4" id="iris2" style="display: none">
-                             <h5><%= com.thesis.Iris.getDataSet("H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/iris.2D.arff")%></h5>
+                        <div class="" id="iris2" style="display: none">
+                             <h5><%= com.thesis.Iris.getDataSet("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/iris.2D.arff")%></h5>
                         </div>
         </div>
     </body>

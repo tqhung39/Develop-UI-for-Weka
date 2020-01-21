@@ -1,10 +1,3 @@
-
-<%@page import="java.util.Hashtable"%>
-<%-- 
-    Document   : classify
-    Created on : Dec 15, 2019, 1:48:04 PM
-    Author     : Admin
---%>
 <%@page import="weka.core.Instances"%>
 <%@page import="java.util.Random"%>
 <%@page import="weka.core.converters.ConverterUtils.DataSource"%>
@@ -69,19 +62,11 @@
                 font-size: 30px;
             }
         </style>
-<<<<<<< HEAD
         <title>Glass Classification</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-primary">
   <a class="navbar-brand pl-5 text-light">Glass Classification</a>
-=======
-        <title>Classify</title>
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-  <a class="navbar-brand pl-5 text-light">Navbar</a>
->>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
 </nav>
             <div class="container">
                 <div id="classify">
@@ -95,7 +80,6 @@
                                 <option value="smo">SMO</option>
                             </select>
                         </h4>
-<<<<<<< HEAD
                         <br>
                         <button class="btn btn-primary" type="button" onclick="getSelected()">Start</button>
                         <br>
@@ -120,22 +104,11 @@
                         <a href="glass-comparison.jsp"><button class="btn btn-primary" type="button" onclick="saveResult()">Compare</button></a>
                             <br>
                             </div>                   
-=======
-                        </br>
-                        <button class="btn btn-primary" type="button" onclick="getSelected()">Start</button>
-                        </br>
-                        <button class="btn btn-primary" id="stop-btn" type="button" onclick="">Stop</button>                         
-                        </br>
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" type="button" onclick="showChart()">Compare</button> 
-                        </div>                   
->>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
+                        </br>                  
                     <div class="col-md-7 ml-5 bg-light" id="glassnb" style="display:none">
                         <h1 class="text-primary" align="center">Classifier output: </h1>
                         <h5><%
-                            Hashtable<String, Double> nb = new Hashtable<String, Double>();
-                            Hashtable<String, Double> j48 = new Hashtable<String, Double>();
-                            Hashtable<String, Double> smo = new Hashtable<String, Double>();
-                            String FILE_PATH = "H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff";
+                            String FILE_PATH = "C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff";
 
                             String TRAINING_DATA_SET_FILENAME = FILE_PATH;
                             String TESTING_DATA_SET_FILENAME = "";
@@ -171,12 +144,6 @@
                             Evaluation eval = new Evaluation(trainingDataSet);
                             if (testingDataSet != null) {
                                 eval.evaluateModel(classifier, testingDataSet);
-                                nb.put("precision", eval.precision(0));                                
-                                nb.put("recall", eval.recall(0));
-                                nb.put("mae", eval.meanAbsoluteError());
-                                nb.put("rmse", eval.rootMeanSquaredError());
-                                System.out.println("cccccccccccccccccccccccccccccccccccc");
-                                System.out.println(nb);
                             } else {
                                 eval.crossValidateModel(classifier, trainingDataSet, 10, new Random(1));
                             }
@@ -190,13 +157,6 @@
                             <ul>        
                         <li>Correctly Classified Instances
                             <%=eval.correct()%>
-                            <%
-                                nb.put("precision", eval.precision(0));                                
-                                nb.put("recall", eval.recall(0));
-                                nb.put("mae", eval.meanAbsoluteError());
-                                nb.put("rmse", eval.rootMeanSquaredError());
-                                System.out.println(nb);
-                                    %>
                             <%=eval.pctCorrect()%>%
                         </li>
                         <li>InCorrectly Classified Instances
@@ -230,7 +190,7 @@
                         <h1 class="text-primary"  align="center">Classifier output: </h1>
                         <h5>
                             <%
-                                DataSource source = new DataSource("H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff");
+                                DataSource source = new DataSource("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff");
                                 Instances dataset = source.getDataSet();	
                                 //set class index to the last attribute
                                 dataset.setClassIndex(dataset.numAttributes()-1);
@@ -247,7 +207,7 @@
                         //evaluate using the test dataset
 
                                 //test dataset for evaluation
-                                DataSource source1 = new DataSource("H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff");
+                                DataSource source1 = new DataSource("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff");
                                 Instances testDataset = source1.getDataSet();
                                 //set class index to the last attribute
                                 testDataset.setClassIndex(testDataset.numAttributes()-1);
@@ -332,14 +292,10 @@
                         <li>InCorrectly Classified Instances
                             <%=eval2.incorrect()%>
                             <%=eval2.pctIncorrect()%>%
-                            
-<<<<<<< HEAD
                         </li>
                         <li>Kappa statistic
-=======
                         </h2>
                         <h2 align="left">Kappa statistic
->>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
                             <%=eval2.kappa()%>
                         </li>
                         <li>Mean absolute error
@@ -363,11 +319,8 @@
                         </ul>
                     </div>
                     </div>
-<<<<<<< HEAD
-=======
                     <div class="col-md-4" id="chartContainer" style="display: none; width: 100%;"></div>
                     </div>
->>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
                 </div>
         </div>
         </div>
@@ -379,14 +332,6 @@
                 document.getElementById("smocom").checked === false;  
             }
             function saveResult() {
-                var nbcom = document.getElementById("nbcom");
-                var j48com = document.getElementById("j48com");
-                var smocom = document.getElementById("smocom");
-                var nbresult = {};
-                var j48result = {};
-                var smoresult = {};
-            if (nbcom.checked === true) {
-function saveResult() {
                 var nbcom = document.getElementById("nbcom");
                 var j48com = document.getElementById("j48com");
                 var smocom = document.getElementById("smocom");
@@ -525,12 +470,7 @@ function saveResult() {
                     j48.style.display = "none";
                     smo.style.display = "block";
                 }
-		}
-            function stopAlert(){
-                alert('The classification has been stopped');
-            }                
-                    saveResult();
-		}
+		}              
             function stopAlert(){
                 alert('The classification has been stopped');
             }    
@@ -631,8 +571,6 @@ function saveResult() {
             }
 
             }
-            
->>>>>>> 51f1eec4d935cd45c12b0485f77b4d40d154efd5
         </script>
     </body>
 </html>

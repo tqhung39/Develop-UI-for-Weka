@@ -114,9 +114,7 @@
                             <hr>
                             <h2 class="text-primary">Input</h2>
                             <br/>
-                             <% for (String line: com.thesis.Glass.getFile("H:/Develop-UI-for-Weka/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff")) {%>
-                             <p style="font-size: 20"><%= line %><p>
-                             <% } %>
+                             <h5><%= com.thesis.Glass.getDataSet("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/glass.arff")%></h5>
                 </div>
     </body>
 </html>
