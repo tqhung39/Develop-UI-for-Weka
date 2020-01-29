@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <title>List of Dataset</title>
+    <title>Homepage</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -98,18 +98,7 @@
     <form method="post" action="uploadFile" enctype="multipart/form-data">
         <h3>Choose a dataset: <input  type="file" name="uploadFile" id="upload"/><input class="btn btn-primary" type="submit" value="Upload"/></h3>
     </form>
-                </br>
-<!--                <h5>Select dataset to preprocess and classify:
-        <h3>Choose a dataset: <input  type="file" name="uploadFile"/><input class="btn btn-primary" type="submit" value="Upload"/></h3>
-    </form>
-                </br>
-                <h5>Select dataset to preprocess and classify:
-            <select id="classify">
-                <option value="glass">Glass</option>
-                <option value="iris2D">Iris2D</option>
-                <option value="weather">Weather nominal</option>
-            </select>
-            </h5>   -->
+                </br>                
             <button class="start-btn" type="button" onclick="getSelected()">Start</button>
             <div class="w3-container" style="margin-top:80px" id="preprocess">
                 <h3 class="w3-xxxlarge w3-text-blue"><b>Preprocess:</b></h3>
@@ -169,8 +158,9 @@
             </div>
         </div>
               <div class="page-footer bg-light">
-                  <div class="cotainer">
-                      <h5>H</h5>
+                  <div class="cotainer" id="footer" style="margin-left: 1000px; margin-top:100px">
+                      <h5>Powered by Tran Quoc Hung</h5>
+                      <h5>ITITIU15082</h5>
                   </div>
                 </div>
         <script>
@@ -211,21 +201,21 @@
             }
             function getSelected(){
                 var upload = document.getElementById("upload");
-                var uploadFile = upload.value;
+                var uploadFile = upload.innerHTML = "${filename}";
                 var glasspre = document.getElementById("glasspre");
                 var irispre = document.getElementById("iris2Dpre");
                 var weatherpre = document.getElementById("weatherpre");
                 var glass = document.getElementById("glass");
                 var iris = document.getElementById("iris2D");
                 var weather = document.getElementById("weather");
-                if (uploadFile = "C:\fakepath\glass.arff"){
+                if (uploadFile === "glass.arff"){
                     glass.style.display = 'block';
                     glasspre.style.display = 'block';
                     iris.style.display = 'none';
                     irispre.style.display = 'none';
                     weather.style.display = 'none';
                     weatherpre.style.display = 'none';
-                } else if(uploadFile = "C:\fakepath\iris.2D.arff"){
+                } else if(uploadFile === "iris.2D.arff"){
                     glass.style.display = 'none';
                     glasspre.style.display = 'none';
                     iris.style.display = 'block';

@@ -67,7 +67,7 @@ public class UploadServlet extends HttpServlet {
             } catch (Exception ex) {
                 request.setAttribute("message", "No file has uploaded");
             }
-            getServletContext().getRequestDispatcher("/result.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/index-page.jsp").forward(request, response);
         }
     }
 }
