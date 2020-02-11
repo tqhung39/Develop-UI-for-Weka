@@ -53,9 +53,13 @@
                 background-color: #337ab7;
                 border-color: #2e6da4;
                 margin-top: 20px;
-                margin-left: 100px;
-                padding-left: 50px;
-                padding-right: 50px;
+                margin-left: 795px;
+                padding-left: 20px;
+                padding-right: 20px;
+        }
+        #sticky-footer {
+            flex-shrink: none;
+            margin-top: 240px;
         }
     </style>
     <body>
@@ -67,14 +71,14 @@
                 <h3 class="w3-padding-64 text-light"><b>Weka<br>Website</b></h3>
             </div>
             <div class="w3-bar-block">
-                <a href="home.html" onclick="w3_close()" class="w3-bar-item w3-button text-light">Home</a>
+                <a href="index-page.jsp" onclick="w3_close()" class="w3-bar-item w3-button text-light">Home</a>
                 <a href="#footer" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white text-light">Contact</a>
                 <div class="w3-dropdown-hover">
                     <button class="w3-button text-light">List of Dataset</button>
                     <div class="w3-dropdown-content w3-bar-block w3-border">
-                        <p class="w3-bar-item w3-button text-light">Glass </p>
-                        <p href="iris" class="w3-bar-item w3-button text-light">Iris.2D</p>
-                        <p href="weather" class="w3-bar-item w3-button text-light">Weathernominal</p>
+                        <p class="w3-bar-item w3-button text-dark">Glass </p>
+                        <p href="iris" class="w3-bar-item w3-button text-dark">Iris.2D</p>
+                        <p href="weather" class="w3-bar-item w3-button text-dark">Weathernominal</p>
                     </div>
                 </div>
 
@@ -101,41 +105,48 @@
                 </br>                
             <button class="start-btn" type="button" onclick="getSelected()">Start</button>
             <div class="w3-container" style="margin-top:80px" id="preprocess">
-                <h3 class="w3-xxxlarge w3-text-blue"><b>Preprocess:</b></h3>
+                <h3 class="w3-xxxlarge w3-text-blue"><b><u>Preprocess:</u></b></h3>
             </div>
+            </br>
             <div class="w3-row-padding">
                 <div class="w3-half" id="glasspre" style="display:none">
                     <img src="images/1.png" style="width:50%" onclick="onClick(this)" id="glass1">
+                    </br>
                     <h3><a href="glass-preprocess.jsp">Glass Dataset</a></h3>
                 </div>
                 <div class="w3-half" id="iris2Dpre" style="display:none">
                     <img src="images/1.png" style="width:50%" onclick="onClick(this)" id="iris1">
+                    </br>
                     <h3><a href="iris2D-preprocess.jsp">Iris.2D Dataset</a></h3>
                 </div>
                 <div class="w3-half" id="weatherpre" style="display:none">
                     <img src="images/1.png" style="width:50%" onclick="onClick(this)" id="weather1">
+                    </br>
                     <h3><a href="weather-preprocess.jsp">Weathernominal Dataset</a></h3>
                 </div>
             <div class="w3-container" id="designers" style="margin-top:75px">
-                <h3 class="w3-xxxlarge w3-text-blue"><b>Classify:</b></h3>
+                <h3 class="w3-xxxlarge w3-text-blue"><b><u>Classify:</u></b></h3>
             </div>
-
+                </br>
             <!-- Photo grid (modal) -->
             <div class="w3-col 8 m6 w3-margin-bottom" id="glass" style="display:none">
                 <div class="w3-display-container">
                     <img src="images/1.png" style="width:50%" onclick="onClick(this)" id="glass">
+                    </br>
                     <h3><a href="glass-classify.jsp">Glass Dataset</a></h3>                    
                 </div>
             </div>
             <div class="w3-col 8 m6 w3-margin-bottom" id="iris2D" style="display:none">
                 <div class="w3-display-container">
                     <img src="images/1.png" style="width:50%" onclick="onClick(this)" id="iris">
+                    </br>
                     <h3><a href="iris2D-classify.jsp">Iris.2D Dataset</a></h3>
                 </div>
             </div>
             <div class="w3-col 8 m6 w3-margin-bottom" id="weather" style="display:none">
                 <div class="w3-display-container">
                     <img src="images/1.png" style="width:50%" onclick="onClick(this)" id="weather">
+                    </br>
                     <h3><a href="weather-classify.jsp">Weathernominal Dataset</a></h3>                   
                 </div>
             </div>
@@ -157,12 +168,14 @@
             </div>
             </div>
         </div>
-              <div class="page-footer bg-light">
-                  <div class="cotainer" id="footer" style="margin-left: 1000px; margin-top:100px">
-                      <h5>Powered by Tran Quoc Hung</h5>
-                      <h5>ITITIU15082</h5>
-                  </div>
-                </div>
+
+  <footer id="sticky-footer" class="py-4 bg-light text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; by Tran Quoc Hung</small>
+      </br>
+      <small>ITITIU15082</small>
+    </div>
+  </footer>
         <script>
             // Script to open and close sidebar
             function w3_open() {

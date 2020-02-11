@@ -18,12 +18,9 @@ public class IrisJ48{
 		
 		Evaluation eval = new Evaluation(dataset);
 		Random rand = new Random(1);
-		int folds = 10;
-		
-		//Notice we build the classifier with the training dataset
+		int folds = 10;		
         //we initialize evaluation with the training dataset and then
         //evaluate using the test dataset
-
 		//test dataset for evaluation
 		DataSource source1 = new DataSource("C:\\Program Files\\Weka-3-8\\data\\iris.2D.arff");
 		Instances testDataset = source1.getDataSet();
