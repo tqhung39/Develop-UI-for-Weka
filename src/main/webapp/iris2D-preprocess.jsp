@@ -41,7 +41,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-  <a class="navbar-brand pl-5 text-light">Iris 2D Preprocessing</a>
+  <a class="navbar-brand pl-5 text-light">Iris2D Preprocessing</a>
 </nav>
         </br>
         <div class="container">
@@ -103,6 +103,9 @@
                             </table>
                         </div>
                         <div class="" id="iris2" style="display: none">
+                            <hr>
+                            <h2 class="text-primary">Input</h2>
+                            <br/>
                              <h5><%= com.thesis.Iris.getDataSet("C:/Users/Admin/Documents/ThesisMaven/target/ThesisMaven-1.0-SNAPSHOT/upload/iris.2D.arff")%></h5>
                         </div>
         </div>

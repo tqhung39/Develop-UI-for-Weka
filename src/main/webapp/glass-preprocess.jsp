@@ -43,7 +43,6 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-primary">
 
   <a class="navbar-brand pl-5 text-light">Glass Preprocessing</a>
-  <a class="navbar-brand pl-5 text-light">Navbar</a>
 
 </nav>
         </br>

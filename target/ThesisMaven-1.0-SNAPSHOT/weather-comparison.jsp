@@ -30,12 +30,14 @@
                             text: "Comparison Chart"
                     },
                     axisX:{
+                            title: 'Algorithm',
                             crosshair: {
                                     enabled: true,
                                     snapToDataPoint: true
                             }
                     },
                     axisY: {
+                            title: 'Rate',
                             crosshair: {
                                     enabled: true
                             }

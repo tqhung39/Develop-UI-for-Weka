@@ -41,7 +41,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-  <a class="navbar-brand pl-5 text-light">Weathernominal Preprocessing</a>
+  <a class="navbar-brand pl-5 text-light">Weather Preprocessing</a>
 </nav>
         </br>
         <div class="container">

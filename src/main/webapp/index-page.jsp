@@ -235,13 +235,15 @@
                     irispre.style.display = 'block';
                     weather.style.display = 'none';
                     weatherpre.style.display = 'none';
-                } else {
+                } else if(uploadFile === "weather.nominal.arff"){
                     glass.style.display ='none';
                     glasspre.style.display = 'none';
                     iris.style.display = 'none';
                     irispre.style.display = 'none';
                     weather.style.display = 'block';
-                    weatherpre.style.display = 'block';
+                    weatherpre.style.display = 'block';                    
+                } else {
+                    alert("Please upload your dataset !");
                 }
             }
         </script>
