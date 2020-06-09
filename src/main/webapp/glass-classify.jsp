@@ -294,8 +294,6 @@
                             <%=eval2.pctIncorrect()%>%
                         </li>
                         <li>Kappa statistic
-                        </h2>
-                        <h2 align="left">Kappa statistic
                             <%=eval2.kappa()%>
                         </li>
                         <li>Mean absolute error

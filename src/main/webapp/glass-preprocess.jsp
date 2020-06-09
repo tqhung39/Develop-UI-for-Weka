@@ -106,6 +106,10 @@
                                 <td>9</td>
                                 <td><a href="chart/glass-chart/Fe-chart.html">Fe</a></td>
                             </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><a href="chart/glass-chart/Type-chart.html">Type</a></td>
+                            </tr>
                         </table>
                     </div>
                 </div>

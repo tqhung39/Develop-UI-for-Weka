@@ -10,10 +10,11 @@
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Raleway">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">        
         <title>Weather Comparison</title>
     </head>
     <body>
-        <div class="" id="chartContainer" style="width: 100%;">          
+        <div class="animated zoomIn" id="chartContainer" style="width: 100%;">          
         </div>                    
                     <script>
                         function showChart(){
